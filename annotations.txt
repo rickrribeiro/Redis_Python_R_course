@@ -1,0 +1,54 @@
+Redis def:
+	- DB using key-value in memory
+	- Very fast
+	- Can use disk for data persistence 
+	- Usually for temporary applications (ex: e-commerce cart, cache, etc...)
+	
+Data types:
+	- Strings ("SET KEY VALUE" ||| "GET KEY" ||| "MSET KEY1 VALUE1 KEY2 VALUE2...KEYN VALUEN"S)
+		-commands ex:    SET 1 "Value saved for key 1"
+			         GET 1
+			         GETRANGE KEY INIT END (return from init to end chars of the value)
+			         MSET 1 "RICARDO" 2 "RAMOS" 3 "RIBEIRO"
+			         EXISTS "key" (Verify if the key exists r->1 or 0)
+			         DEL "key"
+			         TYPE "key"
+			         Expiration:
+			         	-EX: Seconds
+			         	-PX: Mileseconds
+			         	-NX: only works if the key doesnt exists
+			         	-XX: only works if the key exists
+			         	example: SET 1 "RRRR" EX 60 NX 
+			         	example2: EXPIRE key N (n the number in seconds)
+			         	example3: PEXISPIRE key N (n is the number in mileseconds)
+			         	PTTL KEY (verify the expiration time in mileseconds)
+			         	TTL KEY (verify the expiration time in seconds)
+			         	PERSIST KEY (remove the expiration time)
+				GETSET key value (update the value and return old value)
+				MGET KEY1 KEY2 KEY3 (return multiple values)
+				STRLEN KEY (return the value size)
+	- Hashes
+		-HMSET KEY FIELD VALUE FIELD VALUE...
+			-example: HMSET FORM NAME "RICARDO" JOB "PROGRAMMER" AGE "21"
+		- HDEL KEY FIELD (Delete a field from a key)
+		- HGETALL KEY (return all fields)
+		- HMGET KEY FIELD1 FIELD2...
+		- HVALS KEY (GET HASH)
+		- HEXISTS KEY FIELD( RETURN TRUE IF THE FIELD EXISTS AND FALSE IF it doesnt)
+		- HLEN KEY ( number of fields)
+		- HKEYS KEY (fields name)
+		
+	- Lists (list of string)
+		- LPUSH KEY VALUE3 VALUE2 VALUE1 (Insert in the beginning of the list)
+		- RPUSH KEY VALUE (insert in the end of the list)
+		- LRANGE INIT END ( return interval)
+		- LINSERT KEY AFTER/BEFORE VALUE(REFERENCE) VALUE(TO INSERT)
+		- LSET KEY INDEX VALUE (To change value index)
+		- LINDEX KEY INDEX (VALUE IN THE INDEX)
+		- LLEN KEY (LENGTH OF THE LIST)
+		- LPOP KEY (REMOVE IN THE BEGINING)
+		- RPOP (REMOVE IN THE END)
+	- Sets
+	
+	
+	
