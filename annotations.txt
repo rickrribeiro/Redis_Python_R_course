@@ -48,7 +48,29 @@ Data types:
 		- LLEN KEY (LENGTH OF THE LIST)
 		- LPOP KEY (REMOVE IN THE BEGINING)
 		- RPOP (REMOVE IN THE END)
-	- Sets
+
+	- Sets(list with no duplicate value)
+		-Unordered 
+			- SADD KEY VALUE1 VALUE2... ( RETURN IS THE NUMBER OF INSERTED ITENS)
+			- SMEMBERS KEY (list members)
+			- SCARD KEY (number of members)
+			- SISMEMBER KEY VALUE (true if the value exists)
+			- srem key value1 value2... (remove)
+			- SDIFF KEY1 KEY2 (itens in the key1 that doesnt have in key2)
+			- SINTER KEY1 KEY2 (itens in both sets)
+		-Ordered
+			- ZADD KEY SCORE VALUE 
+			- ZCARD KEY (number of members)
+			- ZRANK KEY VALUE (POSITION OF THE VALUE)
+			- ZCOUNT LEY INI END (number of members between score INI and END)
+			- ZSCORE KEY VALUE ( return the score)
+			- ZRANGE KEY INIT END WITHSCORES (return with scores)
+			- ZREM KEY VALUE (remove, return boolean)
+		
 	
+Transactions:
+	- MULTI ( beginningof the transaction) - begin
+	- EXEC ( EXECUTE all commands after MULTI) - commit
+	- DISCARD (discard all commands after MULTI - rollback
 	
 	
