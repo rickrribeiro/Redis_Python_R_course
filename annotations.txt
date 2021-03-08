@@ -1,3 +1,4 @@
+stop redis-server: service redis-server stop
 Redis def:
 	- DB using key-value in memory
 	- Very fast
@@ -73,4 +74,35 @@ Transactions:
 	- EXEC ( EXECUTE all commands after MULTI) - commit
 	- DISCARD (discard all commands after MULTI - rollback
 	
+DB:
+	- SELECT N (N is the DB number)(clusters only support zero) (default is zero)
+	- FLUSHDB (delete all registers in the current DB)
+	- FLUSHALL (delete all registers in ALL DB)
+	- SWAPDB index1 index2 (a client can see another db value)
 	
+Cursors:
+	- SCAN (SEARCH ALL KEYS)
+	- SSCAN (search all sets)
+	- HSCAN (search all hashes)
+	- ZSCAN (search all ordered sets and scores)
+	
+ADM:
+	- CLIENT LIST (ALL CONNECTED CLIENTS)
+	- CLIENT KILL IP:PORT
+	- MONITOR (MONITOR INFO)
+	- INFO (SERVER STATISTIC)
+	- CONFIG GET * (ALL CONFIGS)
+	- CONFIG get dir (find physical config file)
+	- CONFIG SET config value (change config)
+	
+BACKUP:
+	- dump.rdb (backup file)
+
+Modes data persistence:
+	- None (data stay only in memory)
+	- RDB (execute persistence in an interval)
+	- AOF (log with each operation to execute when the server starts)
+	(its possible to use more than a mode)
+	- manually:
+		-SAVE seconds changes (execute every x seconds if it has y changes)
+	- BIGSAVE (asynchronous)
