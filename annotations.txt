@@ -81,7 +81,7 @@ DB:
 	- SWAPDB index1 index2 (a client can see another db value)
 	
 Cursors:
-	- SCAN (SEARCH ALL KEYS)
+	- SCAN (SEARCH ALL KEYS | return the next index to scan)
 	- SSCAN (search all sets)
 	- HSCAN (search all hashes)
 	- ZSCAN (search all ordered sets and scores)
@@ -89,7 +89,7 @@ Cursors:
 ADM:
 	- CLIENT LIST (ALL CONNECTED CLIENTS)
 	- CLIENT KILL IP:PORT
-	- MONITOR (MONITOR INFO)
+	- MONITOR (MONITOR INFO about clients actions)
 	- INFO (SERVER STATISTIC)
 	- CONFIG GET * (ALL CONFIGS)
 	- CONFIG get dir (find physical config file)
